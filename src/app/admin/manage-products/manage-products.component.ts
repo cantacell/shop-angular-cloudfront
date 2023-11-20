@@ -23,6 +23,10 @@ export class ManageProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    localStorage.setItem(
+      'authorization_token',
+      `${btoa('cantacell:TEST_PASSWORD')}`
+    );
     this.products$ = this.productsService.getProducts();
   }
 
