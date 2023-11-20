@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { CheckoutService } from './checkout.service';
 import { ProductCheckout } from '../products/product.interface';
@@ -81,5 +85,20 @@ export class CartComponent implements OnInit {
 
   remove(id: string): void {
     this.cartService.removeItem(id);
+  }
+
+  cartCheckout() {
+    const checkout = {
+      payment: {
+        method: 'visa',
+      },
+      delivery: {
+        address: this.shippingInfo.value.address,
+        firstName: this.shippingInfo.value.comment.firstName,
+        lastName: this.shippingInfo.value.comment.lastName,
+      },
+      comments: this.shippingInfo.value.comment,
+    };
+    this.checkoutService.cartCheckout(checkout).subscribe();
   }
 }

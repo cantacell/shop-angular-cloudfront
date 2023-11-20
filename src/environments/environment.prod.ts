@@ -7,13 +7,13 @@ export const environment: Config = {
     order: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
     import: 'https://7idvptrw76.execute-api.us-east-1.amazonaws.com/dev',
     bff: 'https://hkyr142tth.execute-api.us-east-1.amazonaws.com/dev',
-    cart: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
+    cart: 'https://6xnewpv88f.execute-api.us-east-1.amazonaws.com/dev/',
   },
   apiEndpointsEnabled: {
     product: false,
     order: false,
     import: true,
     bff: true,
-    cart: false,
+    cart: true,
   },
 };
